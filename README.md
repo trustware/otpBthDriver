@@ -1,0 +1,6 @@
+#otpBthDriver
+
+To build:
+```
+make
+```
