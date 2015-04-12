@@ -1,11 +1,8 @@
 #otpBthDriver
 
 Dependencies:
-```
-libbluetooth-dev
-```
+- sudo apt-get install libbluetooth-dev
 
 To use:
-```
-sudo python main.py
-```
+- Start sending advertisement packets from a Bluetooth LE device with data "trustware:uid:secret" (no quotes)
+- sudo python main.py
