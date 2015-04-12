@@ -1,6 +1,11 @@
 #otpBthDriver
 
-To build:
+Dependencies:
 ```
-make
+libbluetooth-dev
+```
+
+To use:
+```
+sudo python main.py
 ```
