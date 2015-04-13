@@ -35,18 +35,21 @@ def main():
   devices = []
   for line in linesOut[1:]:
     parts = line.split(' ')
-    if len(parts) != 2:
+    if len(parts) != 2 or len(parts[1]) < 14:
       continue
     devices.append((parts[0], parts[1][:-1]))
 
-  # Identify valid Trustware devices. Format is 'trustware:uid:secret'. Each
-  # device is a tuple (uid, secret)
+  # Identify valid Trustware devices. Valid device data consists of three
+  # concatenated strings: TOTP (6 chars), UID (8 chars), company URL (12 chars).
+  # Result is a list of tuples (UID, TOTP, company URL)
   trustWareDevices = []
   for device in devices:
-    parts = device[1].split(':')
-    if len(parts) != 3 or parts[0] != 'trustware':
+    totp = device[1][:6]
+    uid = device[1][6:14]
+    url = device[1][14:]
+    if not totp.isdigit() or not totp.isdigit():
       continue
-    trustWareDevices.append((parts[1], parts[2]))
+    trustWareDevices.append((uid, totp, url))
   
   print trustWareDevices
 
