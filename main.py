@@ -7,7 +7,7 @@ import time
 def main():
   # Run Bluetooth LE scan tool and write output to file
   print 'Scanning BTLE...'
-  shellCmdToFile('hcitool lescan', 0.5, '.scanOutput', '.scanErr')
+  shellCmdToFile('hcitool lescan', 1.5, '.scanOutput', '.scanErr')
 
   # Read output and remove temp files
   with open('.scanOutput', 'r') as fileOut:
